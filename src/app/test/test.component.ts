@@ -19,6 +19,7 @@ export class TestComponent implements OnInit {
   getWeatherForecast() {
     return this.weatherForecastService.GetWeatherForecast().subscribe((data: {}) => {
       this.WeatherForecast = data;
+      console.log(this.WeatherForecast)
     })
   }
 }

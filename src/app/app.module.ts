@@ -24,7 +24,7 @@ import { SubtractingComponent } from './subtracting/subtracting.component';
     BrowserModule,
 
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'test', component: TestComponent},

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherForecastService } from '../services/weather-forecast.service';
 
 @Component({
   selector: 'app-test',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-
-  constructor() { }
+  WeatherForecast: any = [];
+  constructor(
+    public weatherForecastService: WeatherForecastService
+  ) { }
 
   ngOnInit(): void {
+    this.getWeatherForecast();
   }
 
+  getWeatherForecast() {
+    return this.weatherForecastService.GetWeatherForecast().subscribe((data: {}) => {
+      this.WeatherForecast = data;
+    })
+  }
 }

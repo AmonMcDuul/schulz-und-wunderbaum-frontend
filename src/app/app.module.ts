@@ -14,6 +14,7 @@ import { WeatherForecastService } from './services/weather-forecast.service';
 import { SubtractingComponent } from './subtracting/subtracting.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,6 @@ import { SubtractingComponent } from './subtracting/subtracting.component';
   ],
   imports: [
     BrowserModule,
-
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([

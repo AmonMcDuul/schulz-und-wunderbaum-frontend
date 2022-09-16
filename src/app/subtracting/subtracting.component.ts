@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-subtracting',
+  selector: 'app-root',
   templateUrl: './subtracting.component.html',
   styleUrls: ['./subtracting.component.scss']
 })
-export class SubtractingComponent implements OnInit {
 
-  constructor() { }
+export class SubtractingComponent {
+  title = 'todo';
 
-  ngOnInit(): void {
+  filter: 'all' | 'active' | 'done' = 'all';
+
+  allItems = [
+    { description: 'Gay', done: true },
+    { description: 'Nerd', done: false },
+    { description: 'Goobers batsen geven', done: false },
+    { description: 'Bitches & hoes', done: false },
+  ];
+
+  get items() {
+    if (this.filter === 'all') {
+      return this.allItems;
+    }
+    return this.allItems.filter((item) => this.filter === 'done' ? item.done : !item.done);
+  }
+
+  addItem(description: string) {
+    this.allItems.unshift({
+      description,
+      done: false
+    });
   }
 
 }

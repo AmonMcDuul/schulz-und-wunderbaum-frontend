@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
@@ -11,22 +10,24 @@ import { Observable } from 'rxjs';
   styleUrls: ['./subtracting.component.scss']
 })
 
-export class SubtractingComponent implements OnInit, OnDestroy {
+export class SubtractingComponent implements OnInit {
   cities = ["Bergen op Zoom", "Amsterdam", "Tilburg", "Den Haag"];
 
   cityControl!: FormControl;
+  chosenCity$!: Observable<string>;
 
-  constructor(private router: Router) {}
+  constructor() {}
 
-  ngOnInit() {
+  setCity(){
     this.cityControl = new FormControl("");
     this.cityControl.valueChanges
       .subscribe(value => {
-        this.router.navigate([value]);
-      });
+        this.chosenCity$ = value;
+    });
   }
 
-  ngOnDestroy() {
+  ngOnInit() {
+    this.setCity()
   }
 }
 

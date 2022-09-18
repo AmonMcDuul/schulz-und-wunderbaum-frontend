@@ -1,7 +1,7 @@
 <div class="main">
-<mat-toolbar color="black">
-  Weather App
-</mat-toolbar>
+  <mat-toolbar color="black">
+    Weather App
+  </mat-toolbar>
 </div>
 <div class="main">
   <mat-form-field>
@@ -14,4 +14,8 @@
   </mat-form-field>
   <br />
   <router-outlet></router-outlet>
+
+  <app-weather-report [cityName]="chosenCity$ | async"></app-weather-report>
+
+  <p>{{ chosenCity$ | async }}</p>
 </div>

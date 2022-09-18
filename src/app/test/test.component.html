@@ -1,2 +1,20 @@
-<p>test works!</p>
-<p>{{ WeatherForecast | json }}</p>
+<p>it works! joepiekayyee!</p>
+
+<thead>
+    <tr class="weather-box">
+        <th>Date</th>
+        <th>temperatureC</th>
+        <th>temperatureF</th>
+        <th>summary</th>
+    </tr>
+</thead>
+<tbody>
+    <ng-container>
+        <tr class="weather-box" *ngFor="let weatherForecast of WeatherForecast$">
+            <td>{{ weatherForecast.date }}</td>
+            <td>{{ weatherForecast.temperatureC }}</td>
+            <td>{{ weatherForecast.temperatureF }}</td>
+            <td>{{ weatherForecast.summary }}</td>
+        </tr>
+    </ng-container>
+</tbody>

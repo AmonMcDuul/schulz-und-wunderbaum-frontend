@@ -1,0 +1,4 @@
+<div class="note-item" *ngFor="let note of notes">
+    <p>{{note?.name}}</p><span> by {{note?.description}}</span>
+    <button (click)="remove.emit(note?.id)" data-test="remove-button">Remove from Collection</button>
+</div>

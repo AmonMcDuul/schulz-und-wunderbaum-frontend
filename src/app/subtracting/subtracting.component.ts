@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -6,30 +11,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./subtracting.component.scss']
 })
 
-export class SubtractingComponent {
-  title = 'todo';
+export class SubtractingComponent implements OnInit, OnDestroy {
+  cities = ["Bergen op Zoom", "Amsterdam", "Tilburg", "Den Haag"];
 
-  filter: 'all' | 'active' | 'done' = 'all';
+  cityControl!: FormControl;
 
-  allItems = [
-    { description: 'Gay', done: true },
-    { description: 'Nerd', done: false },
-    { description: 'Goobers batsen geven', done: false },
-    { description: 'Bitches & hoes', done: false },
-  ];
+  constructor(private router: Router) {}
 
-  get items() {
-    if (this.filter === 'all') {
-      return this.allItems;
-    }
-    return this.allItems.filter((item) => this.filter === 'done' ? item.done : !item.done);
+  ngOnInit() {
+    this.cityControl = new FormControl("");
+    this.cityControl.valueChanges
+      .subscribe(value => {
+        this.router.navigate([value]);
+      });
   }
 
-  addItem(description: string) {
-    this.allItems.unshift({
-      description,
-      done: false
-    });
+  ngOnDestroy() {
   }
+}
 
+@Injectable({ providedIn: "root" })
+export class WeatherService {
+  constructor(private http: HttpClient) {}
+
+  getWeatherForCity(city: string): Observable<any> {
+    const path = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=695ed9f29c4599b7544d0db5c211d499`;
+    return this.http.get(path);
+  }
 }

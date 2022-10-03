@@ -19,7 +19,7 @@ import { collectionReducer } from './state/collection.reducer';
 import { NotesCollectionComponent } from './notes-collection/notes-collection.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { NotesService } from './services/notes.service';
+import { DrugwarsComponent } from './drugwars/drugwars.component';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { NotesService } from './services/notes.service';
     SubtractingComponent,
     NotesComponent,
     NotesCollectionComponent,
-    
+    DrugwarsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +38,7 @@ import { NotesService } from './services/notes.service';
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'test', component: TestComponent},
+      {path: 'drugwars', component: DrugwarsComponent},
     ]),
     StoreModule.forRoot({ notes: notesReducer, collection: collectionReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, }),

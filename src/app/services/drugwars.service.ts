@@ -23,7 +23,6 @@ export class DrugWarsService {
   };
 
   getDrugs(): Observable<Array<Drug>> {
-    console.log("test farts   -- getDrugs()")
     return this.http
     .get<Drug[]>(this.baseurl + '/drugwars/drugs')
     .pipe(map((drugs) => drugs || []));

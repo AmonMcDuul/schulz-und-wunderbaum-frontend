@@ -7,7 +7,6 @@ import { HighScore } from '../models/drugwars/highscore';
 import { Item } from '../models/drugwars/item';
 import { Locations } from '../models/drugwars/locations';
 import { Weapon } from '../models/drugwars/weapon';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-drugwars',
@@ -16,11 +15,11 @@ import { Observable } from 'rxjs';
 })
 export class DrugwarsComponent implements OnInit {
   armors: Armor[] = [];
-  drugs: any;
+  drugs: Drug[] = [];
   highscores: HighScore[] = [];
-  items: any;
-  locations: any;
-  weapons: any;
+  items: Item[] = [];
+  locations: Locations[] = [];
+  weapons: Weapon[] = [];
 
   constructor(private api: DrugWarsService) { }
 
@@ -29,16 +28,12 @@ export class DrugwarsComponent implements OnInit {
   }
 
   seedData() {
-      this.api.getArmor().subscribe((data) => {
-        this.armors = data;
-      });
-      
+     
       if(this.armors.length == 0){
         this.armors = [{id: 1, name: "Shield", description: "A simple shield", defense: 10},
                         {id: 2, name: "BetterShield", description: "A better shield", defense: 25},
                         {id: 3, name: "SuperShield", description: "A super shield", defense: 50}]
       }
-      console.log(this.armors)
       this.api.getDrugs().subscribe((data) => {
         this.drugs = data;
       })

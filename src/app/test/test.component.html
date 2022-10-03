@@ -1,5 +1,21 @@
 <p>it works! joepiekayyee!</p>
+<br>
+<br>
+*************************************************
+<br>
+<h2>Notes</h2>
+<app-notes class="notes" [notes]="notes$ | async" (add)="onAdd($event)"></app-notes>
 
+<h2>All Notes</h2>
+<app-notes-collection class="notes-collection" [notes]="noteCollection$ | async" (remove)="onRemove($event)">
+</app-notes-collection>
+
+<br>
+<br>
+*************************************************
+<br>
+
+<!-- 
 <thead>
     <tr class="weather-box">
         <th>Date</th>
@@ -17,4 +33,4 @@
             <td>{{ weatherForecast.summary }}</td>
         </tr>
     </ng-container>
-</tbody>
+</tbody> -->

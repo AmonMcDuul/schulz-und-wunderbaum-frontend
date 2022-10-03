@@ -18,9 +18,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 
 import { SubtractingComponent } from './subtracting/subtracting.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WeatherReportComponent } from './weather-report/weather-report.component';
-
+import { StoreModule } from '@ngrx/store';
+import { NotesComponent } from './notes/notes.component';
+import { notesReducer } from './state/notes.reducer';
+import { collectionReducer } from './state/collection.reducer';
+import { NotesCollectionComponent } from './notes-collection/notes-collection.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { DrugwarsComponent } from './drugwars/drugwars.component';
 
 
 @NgModule({
@@ -28,7 +33,9 @@ import { WeatherReportComponent } from './weather-report/weather-report.componen
     AppComponent,
     TestComponent,
     SubtractingComponent,
-    WeatherReportComponent
+    NotesComponent,
+    NotesCollectionComponent,
+    DrugwarsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,12 +50,12 @@ import { WeatherReportComponent } from './weather-report/weather-report.componen
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'test', component: TestComponent},
-      {path: "", component: WeatherReportComponent},
-      {path: ":locationName", component: WeatherReportComponent}
+      {path: 'drugwars', component: DrugwarsComponent},
     ]),
-    BrowserAnimationsModule,
+    StoreModule.forRoot({ notes: notesReducer, collection: collectionReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, }),
   ],
-  providers: [WeatherForecastService],
+  //providers: [WeatherForecastService, NotesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

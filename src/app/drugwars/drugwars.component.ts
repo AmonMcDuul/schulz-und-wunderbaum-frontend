@@ -7,6 +7,11 @@ import { HighScore } from '../models/drugwars/highscore';
 import { Item } from '../models/drugwars/item';
 import { Locations } from '../models/drugwars/locations';
 import { Weapon } from '../models/drugwars/weapon';
+import { Seeding } from './seeding';
+import { StartgameComponent } from './startgame/startgame.component';
+import { MatDialog } from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-drugwars',
@@ -21,34 +26,66 @@ export class DrugwarsComponent implements OnInit {
   locations: Locations[] = [];
   weapons: Weapon[] = [];
 
-  constructor(private api: DrugWarsService) { }
+  playerName: string = "";
+
+  constructor(private api: DrugWarsService, private seed: Seeding, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    console.log(this.seed.seedDrugs())
     this.seedData()
   }
 
+
+  openStartGameDialog(): void {
+    const dialogRef = this.dialog.open(StartgameComponent, {
+      width: '250px',
+      data: {playerName: this.playerName},
+    });
+
+    dialogRef.afterClosed().subscribe((result: string) => {
+      console.log('The dialog was closed');
+      this.playerName = result;
+    });
+  }
+
+
   seedData() {
-     
+      this.api.getArmor().subscribe((data) => {
+        this.armors = data;
+      })
       if(this.armors.length == 0){
-        this.armors = [{id: 1, name: "Shield", description: "A simple shield", defense: 10},
-                        {id: 2, name: "BetterShield", description: "A better shield", defense: 25},
-                        {id: 3, name: "SuperShield", description: "A super shield", defense: 50}]
+        this.armors = this.seed.seedArmor();
       }
       this.api.getDrugs().subscribe((data) => {
         this.drugs = data;
       })
+      if(this.drugs.length == 0){
+        this.drugs = this.seed.seedDrugs();
+      }
       this.api.getHighScores().subscribe((data) => {
         this.highscores = data;
       })
+      if(this.highscores.length == 0){
+        this.highscores = this.seed.seedHighScores();
+      }
       this.api.getItems().subscribe((data) => {
         this.items = data;
       })
+      if(this.items.length == 0){
+        this.items = this.seed.seedItems();
+      }
       this.api.getLocations().subscribe((data) => {
         this.locations = data;
       })
+      if(this.locations.length == 0){
+        this.locations = this.seed.seedLocations();
+      }
       this.api.getWeapons().subscribe((data) => {
         this.weapons = data;
       })
+      if(this.weapons.length == 0){
+        this.weapons = this.seed.seedWeapons();
+      }
     }
 
 }

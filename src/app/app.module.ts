@@ -20,6 +20,14 @@ import { NotesCollectionComponent } from './notes-collection/notes-collection.co
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { DrugwarsComponent } from './drugwars/drugwars.component';
+import { Seeding } from './drugwars/seeding';
+import { StartgameComponent } from './drugwars/startgame/startgame.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { 
+  MatInputModule
+} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -30,11 +38,17 @@ import { DrugwarsComponent } from './drugwars/drugwars.component';
     NotesComponent,
     NotesCollectionComponent,
     DrugwarsComponent,
+    StartgameComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'test', component: TestComponent},
@@ -43,7 +57,7 @@ import { DrugwarsComponent } from './drugwars/drugwars.component';
     StoreModule.forRoot({ notes: notesReducer, collection: collectionReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, }),
   ],
-  //providers: [WeatherForecastService, NotesService],
+  providers: [Seeding],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

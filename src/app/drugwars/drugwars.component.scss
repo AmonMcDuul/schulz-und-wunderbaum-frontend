@@ -1,0 +1,49 @@
+.container {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.6fr 1.4fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Player Inventory"
+    "Infobox Location"
+    "Stash Shop";
+}
+
+.Player {
+  grid-area: Player;
+  height: 200px;
+  background-color: aquamarine;
+}
+
+.Inventory {
+  grid-area: Inventory;
+  height: 200px;
+  background-color: papayawhip;
+}
+
+.Infobox {
+  grid-area: Infobox;
+  height: 100px;
+  background-color: darksalmon;
+}
+
+.Location {
+  grid-area: Location;
+  height: 100px;
+  background-color: grey;
+}
+
+.Stash {
+  grid-area: Stash;
+  height: 300px;
+  background-color: burlywood;
+}
+
+.Shop {
+  grid-area: Shop;
+  height: 300px;
+  background-color: cornflowerblue;
+}

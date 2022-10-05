@@ -8,17 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 
-import { WeatherForecastService } from './services/weather-forecast.service';
-
-
 import { SubtractingComponent } from './subtracting/subtracting.component';
-import { StoreModule } from '@ngrx/store';
-import { NotesComponent } from './notes/notes.component';
-import { notesReducer } from './state/notes.reducer';
-import { collectionReducer } from './state/collection.reducer';
-import { NotesCollectionComponent } from './notes-collection/notes-collection.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { DrugwarsComponent } from './drugwars/drugwars.component';
 import { Seeding } from './drugwars/seeding';
 import { StartgameComponent } from './drugwars/startgame/startgame.component';
@@ -28,15 +18,13 @@ import {
 } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     SubtractingComponent,
-    NotesComponent,
-    NotesCollectionComponent,
     DrugwarsComponent,
     StartgameComponent,
   ],
@@ -46,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MatDialogModule,
     MatInputModule,
+    MatCardModule,
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -54,8 +43,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
     ]),
-    StoreModule.forRoot({ notes: notesReducer, collection: collectionReducer }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, }),
   ],
   providers: [Seeding],
   bootstrap: [AppComponent]

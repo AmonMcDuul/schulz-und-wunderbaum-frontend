@@ -19,6 +19,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { CalculationsComponent } from './calculations/calculations.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
     SubtractingComponent,
     DrugwarsComponent,
     StartgameComponent,
+    CalculationsComponent,
   ],
   imports: [
     BrowserModule,

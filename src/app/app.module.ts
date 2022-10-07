@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { CalculationsComponent } from './calculations/calculations.component';
+import { TestcalcComponent } from './calculations/testcalc/testcalc.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CalculationsComponent } from './calculations/calculations.component';
     DrugwarsComponent,
     StartgameComponent,
     CalculationsComponent,
+    TestcalcComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { CalculationsComponent } from './calculations/calculations.component';
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
+      {path: 'calculations', component: CalculationsComponent},
     ]),
   ],
   providers: [Seeding],

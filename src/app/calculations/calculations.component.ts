@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TestcalcComponent } from './testcalc/testcalc.component';
 
 @Component({
   selector: 'app-calculations',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+  openTestCalcDialog(): void {
+    const dialogRef = this.dialog.open(TestcalcComponent, {
+      width: '250px',
+    });
+
+    //result is voor eventuele parameter bladiebla
+    //jan willem is een mafkees
+    dialogRef.afterClosed().subscribe((result: string) => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

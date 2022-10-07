@@ -31,28 +31,3 @@
         {{ drugs | json }}
     </div>
 </div>
-
-
-
-<br>
-<p>seeded data</p>
-{{ armors | json }}
-<br>
-<hr>
-<p>data from backend</p>
-{{ highscores | json }}
-<br>
-drugs:
-<br>
-{{ drugs | json }}
-<br>
-<hr>
-<p>data from loopieloosoe</p>
-<div *ngFor="let armor of armors">
-    {{ armor.name }}
-</div>
-
-<div *ngFor="let highscore of highscores">
-    {{ highscore.id }}
-    {{ highscore.score }}
-</div>

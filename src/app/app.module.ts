@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { CalculationsComponent } from './calculations/calculations.component';
 import { TestcalcComponent } from './calculations/testcalc/testcalc.component';
+import { KmMileComponent } from './calculations/km-mile/km-mile.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TestcalcComponent } from './calculations/testcalc/testcalc.component';
     StartgameComponent,
     CalculationsComponent,
     TestcalcComponent,
+    KmMileComponent,
   ],
   imports: [
     BrowserModule,

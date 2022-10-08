@@ -1,1 +1,41 @@
-<p>testcalc works!</p>
+<div class="testcalc" mat-dialog-content>
+    <div class="top">
+        <h1>Fibonacci carpaccio</h1>
+        <p>
+            F<sub>0</sub> = 0,
+            F<sub>1</sub> = 1,
+            F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub>
+        </p>
+        <h4>Calculate the nth fibonacci carpaccio number</h4>
+        <hr>
+    </div>
+    <div class="custom-container">
+        <form [formGroup]="fibonacciForm">
+            <mat-form-field class="mat-textarea" appearance="fill">
+                <mat-label>input</mat-label>
+                <input matInput formControlName="input" />
+            </mat-form-field>
+            <div *ngIf="numbersFilled">
+                <h2>{{ result }}</h2>
+            </div>
+
+            <button class="button-style" (click)="numberToCalculate()">
+                <ul>
+                    <li>C</li>
+                    <li>A</li>
+                    <li>L</li>
+                    <li>C</li>
+                    <li>U</li>
+                    <li>L</li>
+                    <li>4</li>
+                    <li>T</li>
+                    <li>I</li>
+                    <li>O</li>
+                    <li>N</li>
+                    <li>3</li>
+                </ul>
+            </button>
+
+        </form>
+    </div>
+</div>

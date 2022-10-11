@@ -15,7 +15,6 @@ export class TestcalcComponent implements OnInit {
   constructor(public formBuilder: FormBuilder,) {
     this.fibonacciForm = this.formBuilder.group({
       input: new FormControl(),
-      
     });
     
   }

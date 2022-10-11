@@ -22,6 +22,9 @@ import { MatCardModule } from '@angular/material/card';
 import { CalculationsComponent } from './calculations/calculations.component';
 import { TestcalcComponent } from './calculations/testcalc/testcalc.component';
 import { KmMileComponent } from './calculations/km-mile/km-mile.component';
+import { WeatherAppComponent } from './calculations/weather-app/weather-app.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { KmMileComponent } from './calculations/km-mile/km-mile.component';
     CalculationsComponent,
     TestcalcComponent,
     KmMileComponent,
+    WeatherAppComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,7 @@ import { KmMileComponent } from './calculations/km-mile/km-mile.component';
     MatDialogModule,
     MatInputModule,
     MatCardModule,
+    MatSelectModule,
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

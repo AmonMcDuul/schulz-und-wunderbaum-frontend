@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JdoodleService } from '../services/jdoodle.service';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private script: JdoodleService) { }
 
   ngOnInit(): void {
+    this.loadScript();
   }
 
+  loadScript() {
+    this.script.load('filepicker').then(data => {
+      console.log('script loaded ', data);
+    }).catch(error => console.log(error));
+  }
 }

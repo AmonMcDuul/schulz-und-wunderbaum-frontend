@@ -1,0 +1,33 @@
+<p>drugwars works!</p>
+<button mat-raised-button (click)="openStartGameDialog()">start game</button>
+<div class="container">
+    <div class="Player">
+        Player placeholder
+        <mat-card>
+            <b>player: </b>
+            <p>{{ playerName }}</p>
+        </mat-card>
+
+    </div>
+    <div class="Inventory">
+        Inventory placeholder
+        {{ items | json }}
+        {{ armors | json }}
+        {{ weapons | json }}
+    </div>
+    <div class="Infobox">
+        Infobox placeholder
+    </div>
+    <div class="Location">
+        Location placeholder
+        {{ locations | json }}
+    </div>
+    <div class="Stash">
+        Stash placeholder
+        {{ drugs | json }}
+    </div>
+    <div class="Shop">
+        Shop placeholder
+        {{ drugs | json }}
+    </div>
+</div>

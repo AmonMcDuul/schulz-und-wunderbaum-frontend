@@ -13,7 +13,7 @@ export class KmMileComponent implements OnInit {
   kmMileForm: FormGroup;
   result: number = 0;
 
-  constructor(public formBuilder: FormBuilder,) {
+  constructor(public formBuilder: FormBuilder) {
     this.kmMileForm = this.formBuilder.group({
       input: new FormControl(),      
     });

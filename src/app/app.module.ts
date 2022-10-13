@@ -11,7 +11,7 @@ import { TestComponent } from './test/test.component';
 import { SubtractingComponent } from './subtracting/subtracting.component';
 import { DrugwarsComponent } from './drugwars/drugwars.component';
 import { Seeding } from './drugwars/seeding';
-import { StartgameComponent } from './drugwars/startgame/startgame.component';
+import { StartGameComponent } from './drugwars/startgame/startgame.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { 
   MatInputModule
@@ -32,7 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
     TestComponent,
     SubtractingComponent,
     DrugwarsComponent,
-    StartgameComponent,
+    StartGameComponent,
     CalculationsComponent,
     TestcalcComponent,
     KmMileComponent,

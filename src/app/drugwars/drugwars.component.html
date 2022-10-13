@@ -1,4 +1,59 @@
-<p>drugwars works!</p>
+<h1>Drugwars</h1>
+<h3>Gamemode: {{ player?.gameMode }}</h3>
+<button mat-raised-button (click)="openStartGameDialog()">start game</button>
+<div class="container">
+    <div class="left-container">
+        <div class="inside-container">Picture</div>
+    </div>
+    <div class="middle-container">
+        <div class="inside-container">
+            <p>Player</p>
+        <ul>
+            <li>
+               
+                    <th>Name: </th><td>{{ player?.name }}</td>
+               
+            </li>
+            <li><th>Age: </th><td>{{ player?.age }}</td></li>
+            <li><th>Inventory: </th><td></td></li>
+            <li><th>BankAccount: </th><td></td></li>
+        </ul>
+    </div>
+    </div>
+    <div class="right-container">
+        <div class="inside-container">
+            <p>Inventory</p>
+            <ul>
+                <li>Weapon:</li>
+                <li>Armor: </li>
+                <li>Jacket: </li>
+                <li>Loan: </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="left-container">
+        <div class="inside-container">Console/info</div>
+    </div>
+    <div class="right-container">
+        <div class="inside-container">Citys</div>
+    </div>
+</div>
+<div class="container">
+    <div class="left-container">
+        <div class="inside-container">Inventory</div>
+    </div>
+    <div class="right-container">
+        <div class="inside-container">Market</div>
+    </div>
+</div>
+
+<br><br>
+<hr>
+<h3>Mockup</h3>
+<img src="../../../../assets/drugwars/images/drugwarsmockup.png" alt="mockup" />
+<!-- <p>drugwars works!</p>
 <button mat-raised-button (click)="openStartGameDialog()">start game</button>
 <div class="container">
     <div class="Player">
@@ -30,4 +85,4 @@
         Shop placeholder
         {{ drugs | json }}
     </div>
-</div>
+</div> -->

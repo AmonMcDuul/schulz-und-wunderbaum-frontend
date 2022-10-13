@@ -27,7 +27,7 @@ export class DrugwarsComponent implements OnInit {
   weapons: Weapon[] = [];
 
   playerName: string = "";
-
+  
   constructor(private api: DrugWarsService, private seed: Seeding, public dialog: MatDialog) { }
 
   ngOnInit(): void {

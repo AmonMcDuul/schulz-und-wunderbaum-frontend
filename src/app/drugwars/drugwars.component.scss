@@ -27,3 +27,27 @@
 .inside-container {
   border: 1px solid blueviolet;
 }
+
+.city-container {
+  flex-direction: column;
+}
+
+.example-section {
+  width: auto;
+  height: 30px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-name {
+  width: 60%;
+}
+
+.mat-column-price {
+  width: 20%;
+}
+.mat-column-quantity {
+  width: 20%;
+}

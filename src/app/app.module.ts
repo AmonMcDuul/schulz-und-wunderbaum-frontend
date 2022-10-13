@@ -24,6 +24,10 @@ import { TestcalcComponent } from './calculations/testcalc/testcalc.component';
 import { KmMileComponent } from './calculations/km-mile/km-mile.component';
 import { WeatherAppComponent } from './calculations/weather-app/weather-app.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
+
+
 
 
 @NgModule({
@@ -46,6 +50,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    MatProgressBarModule,
+    MatTableModule,
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

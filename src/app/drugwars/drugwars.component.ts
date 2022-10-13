@@ -11,6 +11,8 @@ import { Seeding } from './seeding';
 import { StartGameComponent } from './startgame/startgame.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Player } from '../models/drugwars/player';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressBarMode } from '@angular/material/progress-bar';
 
 
 
@@ -27,13 +29,38 @@ export class DrugwarsComponent implements OnInit {
   locations: Locations[] = [];
   weapons: Weapon[] = [];
 
+  //player data and gamemode
   player: any;
+  day: number = 0;
+  dayMultiplyer: number = 0;
+
+  //globals?
+  inventory: number = 0;
+  maxInventory: number = 100;
+  bankAccount: number = 0;
+  weapon: string = "None";
+  armor: string = "None";
+  jacket: string = "None";
+  loan: number = 200;
+
+  //Progressbar
+  color: ThemePalette = 'accent';
+  mode: ProgressBarMode = 'determinate';
+  value: number = 0;
+
+  //inventory
+  displayedColumns: string[] = ['name', 'price', 'quantity'];
+  dataSource: Drug[] = [];
   
-  constructor(private api: DrugWarsService, private seed: Seeding, public dialog: MatDialog) { }
+  constructor(private api: DrugWarsService, private seed: Seeding, public dialog: MatDialog) {
+    this.bankAccount = this.bankAccount + this.loan
+   }
 
   ngOnInit(): void {
     console.log(this.seed.seedDrugs())
     this.seedData()
+    this.dataSource = this.drugs;
+    console.log(this.dataSource);
   }
 
 
@@ -47,7 +74,13 @@ export class DrugwarsComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result)
       this.player = result;
+      this.dayMultiplyer = 100 / this.player.gameMode
     });
+  }
+
+  nextDay(): void {
+    this.day++;
+    this.value = this.day * this.dayMultiplyer
   }
 
 

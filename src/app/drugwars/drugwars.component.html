@@ -1,33 +1,56 @@
 <h1>Drugwars</h1>
 <h3>Gamemode: {{ player?.gameMode }}</h3>
+<h4>Day: {{ day }}</h4>
 <button mat-raised-button (click)="openStartGameDialog()">start game</button>
 <div class="container">
     <div class="left-container">
-        <div class="inside-container">Picture</div>
+        <div class="inside-container">Avatar
+            <img src="../../../../assets/drugwars/images/placeholder-avatar.png" alt="avatar" width="200px" />
+        </div>
     </div>
     <div class="middle-container">
         <div class="inside-container">
             <p>Player</p>
-        <ul>
-            <li>
-               
-                    <th>Name: </th><td>{{ player?.name }}</td>
-               
-            </li>
-            <li><th>Age: </th><td>{{ player?.age }}</td></li>
-            <li><th>Inventory: </th><td></td></li>
-            <li><th>BankAccount: </th><td></td></li>
-        </ul>
-    </div>
+            <ul>
+                <li>
+                    <th>Name: </th>
+                    <td>{{ player?.name }}</td>
+                </li>
+                <li>
+                    <th>Age: </th>
+                    <td>{{ player?.age }}</td>
+                </li>
+                <li>
+                    <th>Inventory: </th>
+                    <td>{{ inventory }}/{{ maxInventory }}</td>
+                </li>
+                <li>
+                    <th>BankAccount: </th>
+                    <td>{{ bankAccount }}</td>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="right-container">
         <div class="inside-container">
             <p>Inventory</p>
             <ul>
-                <li>Weapon:</li>
-                <li>Armor: </li>
-                <li>Jacket: </li>
-                <li>Loan: </li>
+                <li>
+                    <th>Weapon: </th>
+                    <td>{{ weapon }}</td>
+                </li>
+                <li>
+                    <th>Armor: </th>
+                    <td>{{ armor }}</td>
+                </li>
+                <li>
+                    <th>Jacket: </th>
+                    <td>{{ jacket }}</td>
+                </li>
+                <li>
+                    <th>Loan: </th>
+                    <td>{{ loan }}</td>
+                </li>
             </ul>
         </div>
     </div>
@@ -37,15 +60,90 @@
         <div class="inside-container">Console/info</div>
     </div>
     <div class="right-container">
-        <div class="inside-container">Citys</div>
+        <div class="inside-container">Citys
+            <div class="city-container">
+                <button>City 1</button>
+                <button>City 2</button>
+            </div>
+            <div class="city-container">
+                <button>City 3</button>
+                <button>City 4</button>
+            </div>
+            <div class="city-container">
+                <button>City 5</button>
+                <button>City 6</button>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container">
     <div class="left-container">
-        <div class="inside-container">Inventory</div>
+        <div class="inside-container">Inventory
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element"> {{element.basePrice}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                    <td mat-cell *matCellDef="let element"> 0 </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </mat-table>
+        </div>
     </div>
     <div class="right-container">
-        <div class="inside-container">Market</div>
+        <div class="inside-container">Market
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element"> {{element.basePrice}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                    <td mat-cell *matCellDef="let element"> 0 </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </mat-table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="left-container">
+        <div class="inside-container">Buy/Sell
+            <br>
+            <button>Buy</button>
+            <button>Sell</button>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="inside-container">Progressbar
+            <mat-progress-bar class="example-section" [color]="color" [mode]="mode" [value]="value">
+            </mat-progress-bar>
+            <button mat-raised-button (click)="nextDay()">Next day</button>
+        </div>
     </div>
 </div>
 

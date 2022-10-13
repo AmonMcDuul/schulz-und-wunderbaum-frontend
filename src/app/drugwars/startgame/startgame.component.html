@@ -5,18 +5,20 @@
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" />
         </mat-form-field>
-        <mat-form-field class="mat-textarea" appearance="fill">
+        <mat-form-field class="mat-number" appearance="fill">
             <mat-label>Age</mat-label>
-            <input matInput formControlName="age" />
+            <input type="number" matInput formControlName="age">
         </mat-form-field>
-        <mat-label>Game mode</mat-label>
-        <mat-select matInput formControlName="gameMode">
-            <mat-option *ngFor="let gameMode of gameModes" [value]="gameMode">
-                {{ gameMode }} days
-            </mat-option>
-        </mat-select>
-        </form>
-        
+        <mat-form-field appearance="fill">
+            <mat-label>Game mode</mat-label>
+            <mat-select matInput number formControlName="gameMode">
+                <mat-option *ngFor="let gameMode of gameModes" [value]="gameMode">
+                    {{ gameMode }} days
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onClick()" cdkFocusInitial>Ok</button>

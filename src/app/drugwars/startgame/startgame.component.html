@@ -1,13 +1,25 @@
 <div mat-dialog-content>
     <p>Drugwars!</p>
-    <mat-form-field appearance="fill">
-        <mat-label>Name: </mat-label>
-        <input matInput [(ngModel)]="data.playerName">
-    </mat-form-field>
+    <form [formGroup]="playerForm">
+        <mat-form-field class="mat-textarea" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" />
+        </mat-form-field>
+        <mat-form-field class="mat-textarea" appearance="fill">
+            <mat-label>Age</mat-label>
+            <input matInput formControlName="age" />
+        </mat-form-field>
+        <mat-label>Game mode</mat-label>
+        <mat-select matInput formControlName="gameMode">
+            <mat-option *ngFor="let gameMode of gameModes" [value]="gameMode">
+                {{ gameMode }} days
+            </mat-option>
+        </mat-select>
+        </form>
+        
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="data.playerName" cdkFocusInitial>Ok</button>
+    <button mat-button (click)="onClick()" cdkFocusInitial>Ok</button>
 </div>
 
 <p>farts</p>

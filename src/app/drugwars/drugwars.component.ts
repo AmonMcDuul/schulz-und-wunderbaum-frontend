@@ -8,8 +8,9 @@ import { Item } from '../models/drugwars/item';
 import { Locations } from '../models/drugwars/locations';
 import { Weapon } from '../models/drugwars/weapon';
 import { Seeding } from './seeding';
-import { StartgameComponent } from './startgame/startgame.component';
+import { StartGameComponent } from './startgame/startgame.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Player } from '../models/drugwars/player';
 
 
 
@@ -26,7 +27,7 @@ export class DrugwarsComponent implements OnInit {
   locations: Locations[] = [];
   weapons: Weapon[] = [];
 
-  playerName: string = "";
+  player: any;
   
   constructor(private api: DrugWarsService, private seed: Seeding, public dialog: MatDialog) { }
 
@@ -37,14 +38,15 @@ export class DrugwarsComponent implements OnInit {
 
 
   openStartGameDialog(): void {
-    const dialogRef = this.dialog.open(StartgameComponent, {
+    const dialogRef = this.dialog.open(StartGameComponent, {
       width: '250px',
-      data: {playerName: this.playerName},
+      data: {player: this.player},
     });
 
     dialogRef.afterClosed().subscribe((result: string) => {
       console.log('The dialog was closed');
-      this.playerName = result;
+      console.log(result)
+      this.player = result;
     });
   }
 

@@ -1,0 +1,40 @@
+<div mat-dialog-content>
+    <div class="top">
+        <h1>Everywhere you go</h1>
+        <h4>
+            always take the
+        </h4>
+        <h2>WEATHER</h2>
+        <hr>
+    </div>
+    <div class="custom-container">
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <mat-select [(ngModel)]="chosenCity">
+                <mat-option *ngFor="let city of cities" [value]="city">
+                    {{city}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <hr>
+        <p>het is zoveel graden celulitus:</p>
+        <h1>{{ (data$ | async)?.main.temp }}</h1>
+        <hr>
+        <button class="button-style" (click)="getWeather(chosenCity)">
+            <ul>
+                <li>C</li>
+                <li>A</li>
+                <li>L</li>
+                <li>C</li>
+                <li>U</li>
+                <li>L</li>
+                <li>4</li>
+                <li>T</li>
+                <li>I</li>
+                <li>O</li>
+                <li>N</li>
+                <li>3</li>
+            </ul>
+        </button>
+    </div>
+</div>

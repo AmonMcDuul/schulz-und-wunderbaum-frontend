@@ -8,24 +8,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 
-
-import { WeatherForecastService } from './services/weather-forecast.service';
-
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-
 import { SubtractingComponent } from './subtracting/subtracting.component';
-import { StoreModule } from '@ngrx/store';
-import { NotesComponent } from './notes/notes.component';
-import { notesReducer } from './state/notes.reducer';
-import { collectionReducer } from './state/collection.reducer';
-import { NotesCollectionComponent } from './notes-collection/notes-collection.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { DrugwarsComponent } from './drugwars/drugwars.component';
+import { Seeding } from './drugwars/seeding';
+import { StartGameComponent } from './drugwars/startgame/startgame.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { 
+  MatInputModule
+} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { CalculationsComponent } from './calculations/calculations.component';
+import { TestcalcComponent } from './calculations/testcalc/testcalc.component';
+import { KmMileComponent } from './calculations/km-mile/km-mile.component';
+import { WeatherAppComponent } from './calculations/weather-app/weather-app.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
+
+
 
 
 @NgModule({
@@ -33,29 +35,34 @@ import { DrugwarsComponent } from './drugwars/drugwars.component';
     AppComponent,
     TestComponent,
     SubtractingComponent,
-    NotesComponent,
-    NotesCollectionComponent,
     DrugwarsComponent,
+    StartGameComponent,
+    CalculationsComponent,
+    TestcalcComponent,
+    KmMileComponent,
+    WeatherAppComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
+    MatDialogModule,
+    MatInputModule,
     MatCardModule,
+    MatSelectModule,
+    MatProgressBarModule,
+    MatTableModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
+      {path: 'calculations', component: CalculationsComponent},
     ]),
-    StoreModule.forRoot({ notes: notesReducer, collection: collectionReducer }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, }),
   ],
-  //providers: [WeatherForecastService, NotesService],
+  providers: [Seeding],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

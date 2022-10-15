@@ -1,0 +1,32 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-container {
+  margin: 10px;
+  text-align: left;
+  width: 200px;
+}
+
+.right-container {
+  margin: 10px;
+  text-align: left;
+  width: 200px;
+}
+
+.buttons {
+  background: white;
+  border: 1px solid black;
+  font-size: larger;
+  font-weight: bold;
+  padding: 15px;
+  width: 100%;
+  margin: 5px;
+}
+
+.buttons:hover {
+  transition: 2s;
+  color: #e91e63;
+  background-color: black;
+}

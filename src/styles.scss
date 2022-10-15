@@ -1,128 +1,144 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-	font: 13px/22px Helvetica;
+  font: 13px/22px Helvetica;
 }
 .buttons {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .buttons > div {
-	width: calc(50% - 40px);
-	padding: 20px;
-	float: left;
-	position: fixed;
-	bottom: 0;
-	top: 0;
+  width: calc(50% - 40px);
+  padding: 20px;
+  float: left;
+  position: fixed;
+  bottom: 0;
+  top: 0;
 }
 .buttons .dark {
-	background: #000;
-	left: 50%;
+  background: #000;
+  left: 50%;
 }
 .buttons a {
-	float: left; 
-	margin-right: 20px;
+  float: left;
+  margin-right: 20px;
   margin-bottom: 20px;
 }
-a#link {position: absolute; left: 20px; bottom: 10px; text-decoration: none; color: #555; font-weight: bold;}
+a#link {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}
 /*------------------------------------------------------*/
 /* BUTTONS */
 /*------------------------------------------------------*/
 .btn,
-input[type="submit"]{
-	cursor: pointer;
-    border-radius: 0px;
-    text-decoration: none;
-    padding: 12px 18px;
-    font-size: 12px;
-    line-height: 19px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif; font-weight:400;
-    letter-spacing: 3px;
-    -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+input[type="submit"] {
+  cursor: pointer;
+  border-radius: 0px;
+  text-decoration: none;
+  padding: 12px 18px;
+  font-size: 12px;
+  line-height: 19px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 3px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-mid {
-    border-radius: 0px;
-    text-decoration: none;
-    padding: 14px 21px;
-    font-size: 13px;
-    line-height: 25px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif; font-weight:400;
-    letter-spacing: 3px;
-    -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+  border-radius: 0px;
+  text-decoration: none;
+  padding: 14px 21px;
+  font-size: 13px;
+  line-height: 25px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 3px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-big {
-    border-radius: 0px;
-    text-decoration: none;
-    padding: 18px 24px;
-    font-size: 14px;
-    line-height: 40px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif; font-weight:400;
-    letter-spacing: 3px;
-    -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+  border-radius: 0px;
+  text-decoration: none;
+  padding: 18px 24px;
+  font-size: 14px;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 .btn:hover,
-input[type="submit"]:hover{
-    -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+input[type="submit"]:hover {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
-.btn-white{
-    border:solid 2px #fff;
-    background: transparent;
-    color: #fff !important;
+.btn-white {
+  border: solid 2px #fff;
+  background: transparent;
+  color: #fff !important;
 }
-.btn-white:hover{
-    border:solid 2px #fff;
-    background: #fff;
-    color: #1f1f1f !important;
+.btn-white:hover {
+  border: solid 2px #fff;
+  background: #fff;
+  color: #1f1f1f !important;
 }
 
 .btn-dark,
-input[type="submit"]{
-    border:solid 2px #1f1f1f;
-    background: transparent;
-    color: #1f1f1f;
+input[type="submit"] {
+  border: solid 2px #1f1f1f;
+  background: transparent;
+  color: #1f1f1f;
 }
 .btn-dark:hover,
 input[type="submit"]:hover,
-.btn-dark.active{
-    border:solid 2px #1f1f1f;
-    background: #1f1f1f;
-    color: #fff;
+.btn-dark.active {
+  border: solid 2px #1f1f1f;
+  transition: 1s;
+  color: #e91e63;
+  background-color: black;
+  font-weight: bold;
 }
 
-.btn-color{
-    background: transparent;
+.btn-color {
+  background: transparent;
 }
-.btn-color:hover{
-    color: #fff;
+.btn-color:hover {
+  color: #fff;
 }
 
 .header {
-    padding: 30px;
-    text-align: center;
-    background: #272727;
-    color: white;
-    font-size: 30px;
-  }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  padding: 30px;
+  text-align: center;
+  background: #272727;
+  color: white;
+  font-size: 30px;
+}
+
+//for changing thet material dialog container.
+.custom-dialog-container .mat-dialog-container {
+  width: 300px;
+  background-color: black;
+}

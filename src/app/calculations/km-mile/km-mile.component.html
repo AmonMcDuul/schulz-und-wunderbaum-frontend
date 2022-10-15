@@ -1,0 +1,73 @@
+<div mat-dialog-content>
+    <div class="top">
+        <h1>KiloMiloMeter</h1>
+        <p *ngIf="kmMile">
+            KM => MILE
+        </p>
+        <p *ngIf="!kmMile">
+            MILE => KM
+        </p>
+        <hr>
+    </div>
+    <div class="custom-container">
+        <form [formGroup]="kmMileForm">
+            <mat-form-field class="mat-textarea" appearance="fill">
+                <mat-label>Input</mat-label>
+                <input matInput formControlName="input" />
+            </mat-form-field>
+            <div *ngIf="numbersFilled">
+                <h2>{{ result }}</h2>
+            </div>
+
+            <button *ngIf="kmMile" class="button-style" (click)="kmMile = !kmMile">
+                <ul>
+                    <li>*</li>
+                    <li>K</li>
+                    <li>M</li>
+                    <li>*</li>
+                    <li>T</li>
+                    <li>O</li>
+                    <li>*</li>
+                    <li>M</li>
+                    <li>I</li>
+                    <li>L</li>
+                    <li>E</li>
+                    <li>*</li>
+                </ul>
+            </button>
+            <button *ngIf="!kmMile" class="button-style" (click)="kmMile = !kmMile">
+                <ul>
+                    <li>*</li>
+                    <li>M</li>
+                    <li>I</li>
+                    <li>L</li>
+                    <li>E</li>
+                    <li>*</li>
+                    <li>T</li>
+                    <li>O</li>
+                    <li>*</li>
+                    <li>K</li>
+                    <li>M</li>
+                    <li>*</li>
+                </ul>
+            </button>
+            <button class="button-style" (click)="calculateKmMile()">
+                <ul>
+                    <li>C</li>
+                    <li>A</li>
+                    <li>L</li>
+                    <li>C</li>
+                    <li>U</li>
+                    <li>L</li>
+                    <li>4</li>
+                    <li>T</li>
+                    <li>I</li>
+                    <li>O</li>
+                    <li>N</li>
+                    <li>3</li>
+                </ul>
+            </button>
+
+        </form>
+    </div>
+</div>

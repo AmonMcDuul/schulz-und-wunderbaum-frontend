@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
  
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Note } from '../notes/notes.model';
  
 @Injectable({ providedIn: 'root' })
-export class NotesService {
-  baseurl = 'https://localhost:7124';
+export class WeatherService {
+    //stupid construction for city
+  baseurl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+  baseurlend = '&units=metric&APPID=';
+  apikey = '695ed9f29c4599b7544d0db5c211d499';
+
   constructor(private http: HttpClient) {}
   // Http Headers
   httpOptions = {
@@ -15,9 +18,11 @@ export class NotesService {
       'Content-Type': 'application/json',
     }),
   };
-  getNotes(): Observable<Array<Note>> {
+
+  getWeatherForCity(city: string): Observable<Array<any>> {
     return this.http
-    .get<Note[]>(this.baseurl + '/notes/')
-    .pipe(map((notes) => notes || []));
-  }
+    .get<any[]>(this.baseurl + city + this.baseurlend + this.apikey)
+    .pipe(map((items) => items || []));
+    }
+
 }

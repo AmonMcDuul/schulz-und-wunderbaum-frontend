@@ -27,6 +27,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 
@@ -43,6 +45,7 @@ import { MatTableModule } from '@angular/material/table';
     WeatherAppComponent,
   ],
   imports: [
+    FlexLayoutModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

@@ -1,17 +1,6 @@
-<div class="main">
-<mat-toolbar color="black">
-  Weather App
-</mat-toolbar>
-</div>
-<div class="main">
-  <mat-form-field>
-    <mat-label>Select city</mat-label>
-    <mat-select [formControl]="cityControl">
-      <mat-option *ngFor="let city of cities" [value]="city">
-        {{city}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br />
-  <router-outlet></router-outlet>
+<div 
+  fxLayout="row wrap" fxLayoutGap="0px" fxLayoutAlign="flex-start">
+  <ng-container *ngFor="let g of grid; let i = index">
+    <div (click)="onClick(g, i)" class="sec1" fxFlex="0 1 calc(33.3%)">{{g.name}}</div>
+  </ng-container>
 </div>

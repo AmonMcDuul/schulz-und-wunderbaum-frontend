@@ -1,5 +1,6 @@
 import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
 
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +8,35 @@ import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./subtracting.component.scss']
 })
 
-// let itemIndex = this.items.findIndex(item => item.id == retrievedItem.id);
-// this.items[itemIndex] = retrievedItem;
-
-export class SubtractingComponent {
+export class SubtractingComponent implements OnInit {
 
   grid =  [
-    {id: 0, name:'Piemletje'},
-    {id: 1, name:'Pammeltje'},
-    {id: 2, name:'Pommetltje'},
-    {id: 3, name:'Giojerrtij'},
-    {id: 4, name:'rgokpw@23'},  
-    {id: 5, name:'EMPTY'},
-    {id: 6, name:'Sevensen'},
-    {id: 7, name:'r@Eight'},
-    {id: 8, name:'Nein! Nein! Nein'}
+    {id: 0, name:'EMPTY'},
+    {id: 1, name:'img3'},
+    {id: 2, name:'img1'},
+    {id: 3, name:'img2'},
+    {id: 4, name:'img6'},  
+    {id: 5, name:'img7'},
+    {id: 6, name:'img4'},
+    {id: 7, name:'img5'},
+    {id: 8, name:'img8'}
   ];
 
-  previousClick: number = 999;
+  solved = false;
+  timeLeft: number = 100;
+  interval: number = 0;
+  subscribeTimer: any;
+  score = 0;
+
+
+
+  observableTimer() {
+      const source = timer(1000, 2000);
+      const abc = source.subscribe(val => {
+        console.log(val, '-');
+        this.subscribeTimer = this.timeLeft - val;
+      });
+    }
 
 
   getAdjacentTiles(idx: number) {
@@ -35,24 +47,43 @@ export class SubtractingComponent {
     return [up, below, right, left];
   }
 
+  solveCheck() {
+    for (let j = 0; j < this.grid.length; j++) {
+      let imgName =  this.grid[j].name
+      if (imgName != 'EMPTY' && imgName.slice(-1) != String(j)) {
+        return false
+      }
+    }
+    return true
+  }
+
   onClick(g: any, i: number) {
-    console.log("clicked" + g.name);
     let adjacentArray = this.getAdjacentTiles(i);
     let emptyObject= this.grid.find(o => o.name === 'EMPTY') || {id: -1};
-    console.log(adjacentArray)
 
     if (g.name !== 'EMPTY') {
       for (let j = 0; j < adjacentArray.length; j++) {
         let adjIndex = adjacentArray[j];
         let emptyIndex = emptyObject.id
         if (adjIndex === emptyIndex) {
-          this.grid[emptyIndex].name = this.grid[i].name 
-          this.grid[i].name = 'EMPTY'
-          console.log(adjIndex);
+          this.grid[emptyIndex].name = this.grid[i].name;
+          this.grid[i].name = 'EMPTY';
+          console.log(this.grid)
           }
         }
     }
+
+    if (this.solveCheck()) {
+      console.log("solved")
+      this.solved = true
+      this.score = this.timeLeft - this.subscribeTimer
+    }
     
+  }
+
+  ngOnInit(): void {
+    this.observableTimer()
+
   }
 
 

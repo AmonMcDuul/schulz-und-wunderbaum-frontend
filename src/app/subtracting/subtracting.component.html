@@ -1,6 +1,18 @@
-<div 
-  fxLayout="row wrap" fxLayoutGap="0px" fxLayoutAlign="flex-start">
-  <ng-container *ngFor="let g of grid; let i = index">
-    <div (click)="onClick(g, i)" class="sec1" fxFlex="0 1 calc(33.3%)">{{g.name}}</div>
-  </ng-container>
+<div class="grid-container">
+    <ng-container *ngFor="let g of grid; let i = index">
+      <div (click)="onClick(g, i)" class="grid-item">
+        <img src="../../../../assets/puzzlegrid/{{g.name}}.png">
+      </div>
+    </ng-container>
 </div>
+
+
+<div class ="large" *ngIf="solved; else notSolved">
+  Solved in {{score}} seconds. Well done!
+</div>
+
+<ng-template  #notSolved>
+  <div class="large">
+    {{subscribeTimer}} seconds left! Hurry up!
+  </div>
+</ng-template>

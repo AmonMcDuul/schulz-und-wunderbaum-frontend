@@ -1,7 +1,9 @@
-.sec1 {
-  background: rgb(63, 63, 63);
-  color:white;
-  text-transform: uppercase;
-  padding-top:50px;
-  text-align:center
+.grid-container {
+  display: grid;
+  grid-template-columns: 236px 236px 236px;
+  grid-template-rows: 232px 232px 232px;
+}
+
+.pad {
+  padding-top: 10px;
 }

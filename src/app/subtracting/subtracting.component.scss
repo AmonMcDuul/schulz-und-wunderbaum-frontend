@@ -1,10 +1,24 @@
+#parent {
+  display: flex;
+}
+#left {
+  width: 750px;
+  /* Just so it's visible */
+}
+#right {
+  flex: 1;
+}
+
+#thumbnail {
+  width: 120px;
+  margin: 20px;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 236px 236px 236px;
   grid-template-rows: 232px 232px 232px;
   overflow: hidden;
-  
-
 }
 
 .grid-item {

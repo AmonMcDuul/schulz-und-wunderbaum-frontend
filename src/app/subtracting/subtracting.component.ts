@@ -68,7 +68,7 @@ export class SubtractingComponent implements OnInit {
   states = [false, false, false, false];
   solution = [0,4,6,8,3,7,2,1,5];
   images = ['face1', 'face2', 'face3'];
-  imagePath: string = '/assets/puzzlegrid/face3.jpeg';
+  imagePath: string = '/assets/puzzlegrid/face2.jpeg';
 
   // image size = 708 x 696
   
@@ -136,7 +136,10 @@ export class SubtractingComponent implements OnInit {
       this.solved = true
       this.score = this.timeLeft - this.subscribeTimer
     }
-    
+  }
+
+  setImage(image: string) {
+    this.imagePath = '/assets/puzzlegrid/' + image + '.jpeg'
   }
 
   ngOnInit(): void {

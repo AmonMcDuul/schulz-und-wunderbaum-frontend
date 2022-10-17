@@ -9,9 +9,19 @@
   flex: 1;
 }
 
-#thumbnail {
+.thumbnail {
   width: 120px;
   margin: 20px;
+}
+
+.zoom {
+  padding: 20px;
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.15);
 }
 
 .grid-container {

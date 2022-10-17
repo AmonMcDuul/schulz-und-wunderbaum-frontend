@@ -1,26 +1,29 @@
 <div class="grid-container">
     <ng-container *ngFor="let g of grid; let i = index">
       <div (click)="onClick(g, i)" class="grid-item">
-        <ng-container *ngIf="clicked === i; else notClicked">
-              <div *ngIf="states.includes(true)">
-                <div *ngIf="states[0]"><img [@slideLeftRight]=true src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
-                <div *ngIf="states[2]"><img [@slideUpDown]="true" src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
-                <div *ngIf="states[1]"><img [@slideRightLeft]="true" src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
-                <div *ngIf="states[3]"><img [@slideDownUp]="true" src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
-                
-              </div>
+        <ng-container *ngIf="g.name !== 'EMPTY'; else isEmpty">
+          <ng-container *ngIf="clicked === i; else notClicked">
+                  <div *ngIf="states.includes(true)">
+                    <div *ngIf="states[0]"><div style="background-image:url({{imagePath}})" [@slideLeftRight]=true class="puzzle {{g.name}}"></div></div>
+                    <div *ngIf="states[2]"><div style="background-image:url({{imagePath}})" [@slideUpDown]="true" class="puzzle {{g.name}}"></div></div>
+                    <div *ngIf="states[1]"><div style="background-image:url({{imagePath}})" [@slideRightLeft]="true" class="puzzle {{g.name}}"></div></div>
+                    <div *ngIf="states[3]"><div style="background-image:url({{imagePath}})" [@slideDownUp]="true" class="puzzle {{g.name}}"></div></div>
+                  </div>
+            </ng-container>
+                <ng-template #notClicked>
+                  <div style="background-image:url({{imagePath}})" class="puzzle {{g.name}}"></div>
+                </ng-template>
         </ng-container>
-            <ng-template #notClicked>
-              <img  src="../../../../assets/puzzlegrid/{{g.name}}.png">
-            </ng-template>
-                
+          <ng-template #isEmpty>
+            <div class="puzzle {{g.name}}"></div>
+          </ng-template>        
       </div>
     </ng-container>
 </div>
 
 
 <div class ="large" *ngIf="solved; else notSolved">
-  Solved in {{score}} seconds. Well done!
+  Solved in {{score}} seconds. Well done! 
 </div>
 
 <ng-template #notSolved>
@@ -28,4 +31,3 @@
     {{subscribeTimer}} seconds left! Hurry up!
   </div>
 </ng-template>
- 

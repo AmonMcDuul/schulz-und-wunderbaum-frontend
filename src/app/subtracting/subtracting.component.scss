@@ -2,18 +2,49 @@
   display: grid;
   grid-template-columns: 236px 236px 236px;
   grid-template-rows: 232px 232px 232px;
-  overflow: hidden
+  overflow: hidden;
+  
 
 }
 
 .grid-item {
   overflow: hidden;
+  border: 2px solid rgb(255, 255, 255)
 }
 
 .pad {
   padding-top: 10px;
 }
 
-.gay{
-  border: 2px solid black
+.puzzle {
+  width:236px;
+  height:232px;
+}
+.img0 {
+  background-color: white;
+  background-image: none;
+}
+.img1 {
+  background-position: 2*236px 232px
+}
+.img2 {
+  background-position: 0px 232px
+}
+.img3 {
+  background-position: 2*236px 2*232px
+}
+.img4 {
+  background-position: 2*236px 3*232px
+}
+.img5 {
+  background-position: 236px 232px
+}
+.img6 {
+  background-position: 236px 0px
+}
+.img7 {
+  background-position: 236px 2*232px
+}
+.img8 {
+  background-position: 3*236px 2*232px
 }

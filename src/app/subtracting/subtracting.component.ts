@@ -1,4 +1,4 @@
-import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations';
 import { timer } from 'rxjs';
 
@@ -66,7 +66,12 @@ export class SubtractingComponent implements OnInit {
   score = 0;
   clicked = -1;
   states = [false, false, false, false];
+  solution = [0,4,6,8,3,7,2,1,5];
+  images = ['face1', 'face2', 'face3'];
+  imagePath: string = '/assets/puzzlegrid/face3.jpeg';
 
+  // image size = 708 x 696
+  
 
   observableTimer() {
       const source = timer(1000, 2000);
@@ -88,7 +93,7 @@ export class SubtractingComponent implements OnInit {
   solveCheck() {
     for (let j = 0; j < this.grid.length; j++) {
       let imgName =  this.grid[j].name
-      if (imgName != 'EMPTY' && imgName.slice(-1) != String(j)) {
+      if (imgName != 'EMPTY' && imgName.slice(-1) != String(this.solution[j])) {
         return false
       }
     }

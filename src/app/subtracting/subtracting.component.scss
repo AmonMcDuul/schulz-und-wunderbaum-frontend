@@ -2,8 +2,18 @@
   display: grid;
   grid-template-columns: 236px 236px 236px;
   grid-template-rows: 232px 232px 232px;
+  overflow: hidden
+
+}
+
+.grid-item {
+  overflow: hidden;
 }
 
 .pad {
   padding-top: 10px;
+}
+
+.gay{
+  border: 2px solid black
 }

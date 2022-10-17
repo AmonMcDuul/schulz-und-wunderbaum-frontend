@@ -1,7 +1,19 @@
 <div class="grid-container">
     <ng-container *ngFor="let g of grid; let i = index">
       <div (click)="onClick(g, i)" class="grid-item">
-        <img src="../../../../assets/puzzlegrid/{{g.name}}.png">
+        <ng-container *ngIf="clicked === i; else notClicked">
+              <div *ngIf="states.includes(true)">
+                <div *ngIf="states[0]"><img [@slideLeftRight]=true src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
+                <div *ngIf="states[2]"><img [@slideUpDown]="true" src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
+                <div *ngIf="states[1]"><img [@slideRightLeft]="true" src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
+                <div *ngIf="states[3]"><img [@slideDownUp]="true" src="../../../../assets/puzzlegrid/{{g.name}}.png"></div>
+                
+              </div>
+        </ng-container>
+            <ng-template #notClicked>
+              <img  src="../../../../assets/puzzlegrid/{{g.name}}.png">
+            </ng-template>
+                
       </div>
     </ng-container>
 </div>
@@ -11,8 +23,9 @@
   Solved in {{score}} seconds. Well done!
 </div>
 
-<ng-template  #notSolved>
+<ng-template #notSolved>
   <div class="large">
     {{subscribeTimer}} seconds left! Hurry up!
   </div>
 </ng-template>
+ 

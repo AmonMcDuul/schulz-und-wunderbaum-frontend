@@ -1,11 +1,49 @@
 import { Component, Injectable, OnDestroy, OnInit } from '@angular/core';
-
+import { trigger, transition, animate, style } from '@angular/animations';
 import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './subtracting.component.html',
-  styleUrls: ['./subtracting.component.scss']
+  styleUrls: ['./subtracting.component.scss'],
+  animations: [
+    trigger('slideLeftRight', [
+      transition(':enter', [
+        style({transform: 'translateX(-100%)'}),
+        animate('200ms ease-in-out', style({transform: 'translateX(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in-out', style({transform: 'translateX(100%)'}))
+      ])
+    ]),
+    trigger('slideRightLeft', [
+      transition(':enter', [
+        style({transform: 'translateX(100%)'}),
+        animate('200ms ease-in-out', style({transform: 'translateX(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in-out', style({transform: 'translateX(-100%)'}))
+      ])
+    ]),
+    trigger('slideUpDown', [
+      transition(':enter', [
+        style({transform: 'translateY(100%)'}),
+        animate('200ms ease-in-out', style({transform: 'translateY(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in-out', style({transform: 'translateY(-100%)'}))
+      ])
+    ]),
+    trigger('slideDownUp', [
+      transition(':enter', [
+        style({transform: 'translateY(-100%)'}),
+        animate('200ms ease-in-out', style({transform: 'translateY(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in-out', style({transform: 'translateY(100%)'}))
+      ])
+    ])
+  ]
 })
 
 export class SubtractingComponent implements OnInit {
@@ -24,10 +62,10 @@ export class SubtractingComponent implements OnInit {
 
   solved = false;
   timeLeft: number = 100;
-  interval: number = 0;
   subscribeTimer: any;
   score = 0;
-
+  clicked = -1;
+  states = [false, false, false, false];
 
 
   observableTimer() {
@@ -60,7 +98,7 @@ export class SubtractingComponent implements OnInit {
   onClick(g: any, i: number) {
     let adjacentArray = this.getAdjacentTiles(i);
     let emptyObject= this.grid.find(o => o.name === 'EMPTY') || {id: -1};
-
+    this.clicked = -1
     if (g.name !== 'EMPTY') {
       for (let j = 0; j < adjacentArray.length; j++) {
         let adjIndex = adjacentArray[j];
@@ -68,9 +106,24 @@ export class SubtractingComponent implements OnInit {
         if (adjIndex === emptyIndex) {
           this.grid[emptyIndex].name = this.grid[i].name;
           this.grid[i].name = 'EMPTY';
-          console.log(this.grid)
-          }
+          this.clicked = emptyIndex
         }
+        if ((this.clicked - i) == 1) {
+          this.states = [true, false, false, false]
+        }
+  
+        else if ((this.clicked - i) == -1) {
+          this.states = [false, true, false, false]
+        }  
+  
+        else if ((this.clicked - i) < -1) {
+          this.states = [false, false, true, false]
+        } 
+
+        else if ((this.clicked - i) > 1) {
+          this.states = [false, false, false, true]
+        } 
+      }
     }
 
     if (this.solveCheck()) {
@@ -83,10 +136,8 @@ export class SubtractingComponent implements OnInit {
 
   ngOnInit(): void {
     this.observableTimer()
-
+    this.states = [false, false, false, false]
   }
-
-
 }
 
 

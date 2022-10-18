@@ -1,0 +1,27 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px 80px 80px;
+    overflow: hidden;
+  }
+  
+  .grid-item {
+    overflow: hidden;
+    border: 1px solid rgb(107, 107, 107)
+  }
+
+  .center {
+    text-align: center;
+  }
+  
+  .clicked0 {
+    background: antiquewhite;
+  }
+
+  .clicked1 {
+    background: rgb(115, 185, 127);
+  }
+
+  .clicked2 {
+    background: rgb(180, 118, 118);
+  }

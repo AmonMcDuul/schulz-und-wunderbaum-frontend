@@ -28,6 +28,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
 
 
 
@@ -37,12 +38,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppComponent,
     TestComponent,
     SubtractingComponent,
+    FourInARowComponent,
     DrugwarsComponent,
     StartGameComponent,
     CalculationsComponent,
     TestcalcComponent,
     KmMileComponent,
     WeatherAppComponent,
+    FourInARowComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -60,6 +63,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
+      {path: 'fourinarow', component: FourInARowComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
       {path: 'calculations', component: CalculationsComponent},

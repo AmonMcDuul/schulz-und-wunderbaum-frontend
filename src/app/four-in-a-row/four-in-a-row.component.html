@@ -2,7 +2,7 @@
   <ng-container *ngFor="let row of matrix; let x = index">
     <ng-container *ngFor="let col of row; let y = index">
       <div (click)="makeMove(x, y)" class="grid-item center clicked{{ matrix[x][y]}}">
-        <!-- {{x}},{{y}} -->
+        {{x}},{{y}}
       </div>
     </ng-container>
   </ng-container>

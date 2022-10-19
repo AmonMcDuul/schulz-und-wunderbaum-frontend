@@ -13,9 +13,7 @@ import { DrugwarsComponent } from './drugwars/drugwars.component';
 import { Seeding } from './drugwars/seeding';
 import { StartGameComponent } from './drugwars/startgame/startgame.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { 
-  MatInputModule
-} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -27,6 +25,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
+import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.component';
+
 
 
 
@@ -35,14 +37,18 @@ import { MatTableModule } from '@angular/material/table';
     AppComponent,
     TestComponent,
     SubtractingComponent,
+    FourInARowComponent,
+    GamedialogComponent,
     DrugwarsComponent,
     StartGameComponent,
     CalculationsComponent,
     TestcalcComponent,
     KmMileComponent,
     WeatherAppComponent,
+    FourInARowComponent,
   ],
   imports: [
+    FlexLayoutModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -57,11 +63,13 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
+      {path: 'fourinarow', component: FourInARowComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
       {path: 'calculations', component: CalculationsComponent},
     ]),
   ],
+  entryComponents: [GamedialogComponent],
   providers: [Seeding],
   bootstrap: [AppComponent]
 })

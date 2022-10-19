@@ -1,0 +1,34 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px 80px 80px;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .grid-item {
+    overflow: hidden;
+    border: 1px solid rgb(32, 32, 39);
+  }
+
+  .center {
+    text-align: center;
+  }
+  
+  .clicked0 {
+    background: rgb(238, 235, 230);
+  }
+
+  .clicked1 {
+    background: rgb(115, 185, 127);
+  }
+
+  .clicked2 {
+    background: rgb(180, 118, 118);
+  }
+
+  .circle {
+    border-radius: 50%;
+    width: 80;
+    height: 80px; 
+  }

@@ -13,9 +13,7 @@ import { DrugwarsComponent } from './drugwars/drugwars.component';
 import { Seeding } from './drugwars/seeding';
 import { StartGameComponent } from './drugwars/startgame/startgame.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { 
-  MatInputModule
-} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -29,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
+import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.component';
 
 
 
@@ -39,6 +38,7 @@ import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
     TestComponent,
     SubtractingComponent,
     FourInARowComponent,
+    GamedialogComponent,
     DrugwarsComponent,
     StartGameComponent,
     CalculationsComponent,
@@ -69,6 +69,7 @@ import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
       {path: 'calculations', component: CalculationsComponent},
     ]),
   ],
+  entryComponents: [GamedialogComponent],
   providers: [Seeding],
   bootstrap: [AppComponent]
 })

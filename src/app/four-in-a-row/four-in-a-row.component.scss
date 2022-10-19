@@ -2,12 +2,13 @@
     display: grid;
     grid-template-columns: 80px 80px 80px 80px 80px 80px 80px;
     grid-template-rows: 80px 80px 80px 80px 80px 80px;
-    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
   }
   
   .grid-item {
     overflow: hidden;
-    border: 1px solid rgb(26, 26, 26)
+    border: 1px solid rgb(32, 32, 39);
   }
 
   .center {
@@ -15,7 +16,7 @@
   }
   
   .clicked0 {
-    background: antiquewhite;
+    background: rgb(238, 235, 230);
   }
 
   .clicked1 {
@@ -24,4 +25,10 @@
 
   .clicked2 {
     background: rgb(180, 118, 118);
+  }
+
+  .circle {
+    border-radius: 50%;
+    width: 80;
+    height: 80px; 
   }

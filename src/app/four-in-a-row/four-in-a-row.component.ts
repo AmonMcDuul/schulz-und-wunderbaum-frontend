@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { GamedialogComponent } from './gamedialog/gamedialog.component';
 
 // TODO:
-// computer alleen geldige zet
-// diagnoal winCheck
-// popup when you win or lose
-// better AI - block 3 possible win
-
+// computer altijd een zet
+// diagonal en vertical winCheck - tweaken
 
 @Component({
   selector: 'app-four-in-a-row',
@@ -14,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./four-in-a-row.component.scss']
 })
 export class FourInARowComponent implements OnInit {
+
+  constructor (public dialog: MatDialog) {}
 
   matrix = [[0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
@@ -34,7 +34,27 @@ export class FourInARowComponent implements OnInit {
   blockRow = -1;
   blockedV = [-1];
   blockedH = [-1];
-  
+
+  openAlertDialog(winner: string) {
+    const dialogRef = this.dialog.open(GamedialogComponent,{
+      data:{
+        message: winner,
+        buttonText: {
+          cancel: 'Retry'
+        }
+      },
+    });
+  }
+
+  winDialog() {
+    if (this.winner === 1) {
+      this.openAlertDialog("You're a winner!")
+    }
+    else if (this.winner === 2) {
+      this.openAlertDialog("You're a loser!")
+    }
+  }
+
   winCheck(player: number) {
     // horizontal check
     var horTotal = 0
@@ -139,6 +159,7 @@ export class FourInARowComponent implements OnInit {
         this.winCheck(1)
         this.computerMove()
         this.winCheck(2)
+        this.winDialog()
         break;
       }
     }
@@ -155,7 +176,7 @@ export class FourInARowComponent implements OnInit {
       }
     }
     else if (this.blockRow !== -1) {
-      for (let j = this.matrix.length - 1; j >= 0; j--) {
+      for (let j = this.matrix.length; j >= 0; j--) {
         if (this.matrix[this.blockRow][j] === 0) {
             this.matrix[this.blockRow][j] = 2
             this.blockRow = -1

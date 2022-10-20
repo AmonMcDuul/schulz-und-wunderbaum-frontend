@@ -28,6 +28,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
 import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.component';
+import { TypespeedComponent } from './typespeed/typespeed.component';
 
 
 
@@ -46,6 +47,7 @@ import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.compo
     KmMileComponent,
     WeatherAppComponent,
     FourInARowComponent,
+    TypespeedComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -64,6 +66,7 @@ import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.compo
     RouterModule.forRoot([
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'fourinarow', component: FourInARowComponent},
+      {path: 'typespeed', component: TypespeedComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
       {path: 'calculations', component: CalculationsComponent},

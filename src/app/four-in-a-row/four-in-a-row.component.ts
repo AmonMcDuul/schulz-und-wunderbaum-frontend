@@ -72,9 +72,9 @@ export class FourInARowComponent implements OnInit {
             horTotal = 0
             console.log("hor win 2")
           }
-          if ((horTotal === 3) && !(this.blockedH.includes(i))) {
-            this.blockRow = i
-            this.blockedH.push(i)
+          if ((horTotal === 3) && !(this.blockedH.includes(j+1))) {
+            this.blockRow = j + 1
+            this.blockedH.push((j+1))
           }
         }
         else {
@@ -84,8 +84,8 @@ export class FourInARowComponent implements OnInit {
     }
     
     // vertical check
+    var vertTotal = 0
     for (let j = 0; j < this.matrix.length + 1; j++) {
-      var vertTotal = 0
       for (let i = 0; i < this.matrix.length; i++) {
         if (this.matrix[i][j] === player) {
           vertTotal += this.matrix[i][j]
@@ -145,7 +145,7 @@ export class FourInARowComponent implements OnInit {
         this.turn = 0
         this.winCheck(1)
         if (this.winner === 0) {
-          this.computerMove()
+          setTimeout(() => {this.computerMove()}, 1000)
           this.winCheck(2)
         }
         this.winDialog()
@@ -180,17 +180,18 @@ export class FourInARowComponent implements OnInit {
         }
       }
     }
-    // else if (this.blockRow !== -1) {
-    //   for (let j = this.matrix.length; j >= 0; j--) {
-    //     if (this.matrix[this.blockRow][j] === 0) {
-    //         this.matrix[this.blockRow][j] = 2
-    //         this.blockRow = -1
-    //         break
-    //     }
-    //   }
-    // }
+    else if (this.blockRow !== -1) {
+      for (let j = this.matrix.length - 1; j >= 0; j--) {
+        if (this.matrix[j][this.blockRow] === 0) {
+          this.matrix[j][this.blockRow] = 2
+          this.blockRow = -1
+          break
+        }
+      }
+    }
     else {
       let randomCol = Math.floor(Math.random() * 7)
+      console.log(randomCol)
       for (let j = this.matrix.length - 1; j >= 0; j--) {
         if (this.matrix[j][randomCol] === 0) {
           this.matrix[j][randomCol] = 2

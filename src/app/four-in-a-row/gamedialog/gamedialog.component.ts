@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -7,9 +7,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./gamedialog.component.scss']
 })
 export class GamedialogComponent {
-
+  
   message: string = ""
   cancelButtonText = "Cancel"
+
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<GamedialogComponent>) {
@@ -19,7 +20,6 @@ export class GamedialogComponent {
           this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
         }
       }
-    // this.dialogRef.updateSize('300px','100px')
   }
 
   onConfirmClick(): void {

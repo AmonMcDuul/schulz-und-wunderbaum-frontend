@@ -46,11 +46,11 @@ export class FourInARowComponent implements OnInit {
     switch (this.winner) {
       case 1: 
         this.openAlertDialog("You're a winner!")
-        setTimeout(() => {this.resetGame()}, 10000)
+        setTimeout(() => {this.resetGame()}, 1000)
         break
       case 2:
         this.openAlertDialog("You're a loser!")
-        setTimeout(() => {this.resetGame()}, 10000)
+        setTimeout(() => {this.resetGame()}, 1000)
         break
     }  
   }

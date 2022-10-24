@@ -2,19 +2,26 @@
     font-family: Arial, sans-serif;
     font-size: 20px;
     text-align: left;
-    width: 60vw;
     margin: 20px;
+    display: flex;
 }
 
+.input {
+    background-color: rgba(230, 230, 230, 0.336);
+    min-height: 100px;
+    max-width: 50vw;
+}
 .prompt {
-    font-style: italic;
-    background-color: aliceblue;
+    float: left;
+    margin: 3px;
+    font-style: italic;   
+    max-width: 400px;
 }
 
 .equal {
-    background-color: rgb(175, 218, 174);
+    color: rgb(52, 121, 50);
 }
 
 .notequal {
-    background-color: rgb(218, 174, 174);
+    color: rgb(0, 0, 0);
 }

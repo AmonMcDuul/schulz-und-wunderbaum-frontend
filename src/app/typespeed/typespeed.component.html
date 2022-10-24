@@ -1,6 +1,21 @@
 <div>Type the following sentence as fast as you can:</div>
 
-<div class="text">{{prompt}}</div>
-<div class="text prompt {{equalCheck}}">{{text}}</div>
+<div class="text">
+    <div *ngFor="let word of promptList; let idx = index" class ="prompt">
+        <div *ngIf="isCorrect(word, idx); else notCorrect">
+            <span class ="equal">
+                {{word}}
+            </span>
+        </div>
+        <ng-template #notCorrect>
+            <div class ="notequal">
+                {{word}}
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+
+<div class="text input">{{text}}</div>
 
 <div class="text">Typing speed: {{wpmResult}} words per minute!</div>

@@ -19,6 +19,7 @@ export class TypespeedComponent implements OnInit {
   done: Boolean = false;
   wpmResult: number = 0;
   subject = new Subject();
+  promptList = this.prompt.split(" ");
 
   constructor() { }
 
@@ -34,15 +35,24 @@ export class TypespeedComponent implements OnInit {
     });
   }
 
-
-  equalTest(){
-    if (this.text === this.prompt.slice(0, this.textLength)) {
-      return 'equal'
+  isCorrect(word: string, idx: number) {
+    if (word === this.text.split(" ")[idx]) {
+      return true
     }
     else {
-      return 'notequal'
+      return false
     }
+
   }
+
+  // equalTest() {
+  //   if (this.text === this.prompt.slice(0, this.textLength)) {
+  //     return 'equal'
+  //   }
+  //   else {
+  //     return 'notequal'
+  //   }
+  // }
 
   wpmCalc() {
     if (this.done === true) {
@@ -69,7 +79,7 @@ export class TypespeedComponent implements OnInit {
     if (/^[a-zA-Z ,.]+$/.test(event.key)) {
       this.text += event.key
       this.textLength= this.text.length
-      this.equalCheck = this.equalTest()
+      // this.equalCheck = this.equalTest()
     }
   }
 

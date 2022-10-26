@@ -45,15 +45,6 @@ export class TypespeedComponent implements OnInit {
 
   }
 
-  // equalTest() {
-  //   if (this.text === this.prompt.slice(0, this.textLength)) {
-  //     return 'equal'
-  //   }
-  //   else {
-  //     return 'notequal'
-  //   }
-  // }
-
   wpmCalc() {
     if (this.done === true) {
       let wordCount = this.prompt.split(" ").length
@@ -79,7 +70,6 @@ export class TypespeedComponent implements OnInit {
     if (/^[a-zA-Z ,.]+$/.test(event.key)) {
       this.text += event.key
       this.textLength= this.text.length
-      // this.equalCheck = this.equalTest()
     }
   }
 

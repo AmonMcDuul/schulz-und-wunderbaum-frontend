@@ -18,4 +18,9 @@
 
 <div class="text input">{{text}}</div>
 
-<div class="text">Typing speed: {{wpmResult}} words per minute!</div>
+<div *ngIf="done; else notDone" class="text">Typing speed: {{wpmResult}} words per minute!</div>
+<ng-template #notDone>
+    <div class ="text">
+        Doortypen!
+    </div>
+</ng-template>

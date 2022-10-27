@@ -1,2 +1,4 @@
-<canvas #myCanvas></canvas>
+<div><canvas #myCanvas></canvas></div>
+<mat-slider class="mat" [(ngModel)] ="slidervalue" (change)="clearCanvas()" thumbLabel 
+min="1" max="10" step="1" value="4"></mat-slider>
  

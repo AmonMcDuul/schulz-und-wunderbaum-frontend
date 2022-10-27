@@ -24,6 +24,7 @@ import { WeatherAppComponent } from './calculations/weather-app/weather-app.comp
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
@@ -62,6 +63,7 @@ import { GenerativeComponent } from './generative/generative.component';
     MatSelectModule,
     MatProgressBarModule,
     MatTableModule,
+    MatSliderModule,
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

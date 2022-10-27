@@ -13,6 +13,7 @@ size: number = 600;
 dpr: number = window.devicePixelRatio;
 private canvas: any;
 private context: any;
+slidervalue: number = 2;
    
 constructor() { }
 
@@ -22,48 +23,53 @@ ngAfterViewInit() {
   this.drawCanvas();
 }
 
+clearCanvas() {
+  this.canvas.width+=0;
+  this.ngAfterViewInit();
+}
+
 drawCanvas() {
     this.canvas.width = this.size * this.dpr;
     this.canvas.height = this.size * this.dpr;
     this.context.scale(this.dpr, this.dpr);
 
-    this.context.lineWidth = 1;
-    this.context.lineCap = 'square';
-    this.context.lineJoin = 'square';
-
-    const gradient = this.context.createLinearGradient(20,11,20,30);
-    gradient.addColorStop(0, "black");
-    gradient.addColorStop(1, "black");
-    this.context.strokeStyle = gradient;
+    this.context.lineWidth = 2;
     
-    var step = 35;
+    var step = 14;
+    var lines = [];
 
-    for (var y = step; y < this.size - step; y += step) {
-      for (var x = step; x < this.size - step; x+= step) {
-          this.draw(x, y, step, step);      
+    for(var i = step; i <= this.size - step; i += step) {
+      var line = [];
+      for(var j = step; j <= this.size - step; j+= step) {
+        var distanceToCenter = Math.abs(j - this.size / 2);
+        var variance = Math.max(this.size / 2 - 100 - distanceToCenter, 0);
+        var random = Math.random() * variance / this.slidervalue * -1;
+        var point = {x: j, y: i + random};
+        line.push(point);
+      } 
+      lines.push(line);
+    }
+
+    // draw
+    for(var i = 5; i < lines.length; i++) {
+
+      this.context.beginPath();
+      this.context.moveTo(lines[i][0].x, lines[i][0].y);
+
+      for(var j = 0; j < lines[i].length - 2; j++) {
+        var xc = (lines[i][j].x + lines[i][j + 1].x) / 2;
+        var yc = (lines[i][j].y + lines[i][j + 1].y) / 2;
+        this.context.quadraticCurveTo(lines[i][j].x, lines[i][j].y, xc, yc);
       }
-  }
-}
+    
+      this.context.quadraticCurveTo(lines[i][j].x, lines[i][j].y, lines[i][j + 1].x, lines[i][j + 1].y);
 
-CalcSineY(x: number, h: number) {
-	return h - h * Math.sin( x * 2 * Math.PI * (1/60));
+      this.context.save();
+      this.context.globalCompositeOperation = 'destination-out';
+      this.context.fill();
+      this.context.restore();
+      this.context.stroke();
+    }
 }
-
-draw(x: number, y: number, width: number, height: number) {
-  this.context.save();
-  this.context.translate(x + width/2, y + height/2);
-  this.context.rotate(Math.random() * 50);
-  this.context.translate(-width/2, -height/2);
-  
-  for(var i = 0; i <= 70; i++) {
-    this.context.beginPath();
-    this.context.moveTo(Math.random()*i, 0);
-    this.context.lineTo(0, this.CalcSineY(6, 100));
-    this.context.stroke();
-  }
-
-  this.context.restore();
-}
-  
 
 }

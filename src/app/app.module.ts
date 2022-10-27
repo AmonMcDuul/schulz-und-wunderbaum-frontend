@@ -29,6 +29,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
 import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.component';
 import { TypespeedComponent } from './typespeed/typespeed.component';
+import { GenerativeComponent } from './generative/generative.component';
 
 
 
@@ -48,6 +49,7 @@ import { TypespeedComponent } from './typespeed/typespeed.component';
     WeatherAppComponent,
     FourInARowComponent,
     TypespeedComponent,
+    GenerativeComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -67,6 +69,7 @@ import { TypespeedComponent } from './typespeed/typespeed.component';
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'fourinarow', component: FourInARowComponent},
       {path: 'typespeed', component: TypespeedComponent},
+      {path: 'generative', component: GenerativeComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
       {path: 'calculations', component: CalculationsComponent},

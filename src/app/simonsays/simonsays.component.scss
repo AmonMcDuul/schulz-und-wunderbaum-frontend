@@ -1,0 +1,57 @@
+.gen {
+    width: 200px;
+    height: 200px;
+    float:left;
+    margin: 20px;
+    border-radius: 10%;
+}
+
+.color0 {
+    background-color: aquamarine;
+}
+
+.color1 {
+    background-color: rgb(255, 127, 127);
+}
+
+.color2 {
+    background-color: rgb(127, 150, 255);
+}
+
+.color3 {
+    background-color: rgb(255, 225, 127);
+}
+
+
+.color0:active {
+    box-shadow: inset 20px 0 300px rgb(0, 255, 106),
+  }
+
+.color1:active {
+    box-shadow: inset 20px 0 300px rgb(255, 0, 76),
+  }
+
+.color2:active {
+    box-shadow: inset 20px 0 300px rgb(111, 0, 255),
+  }
+
+.color3:active {
+    box-shadow: inset 20px 0 300px rgb(255, 238, 0),
+  }
+
+
+.active0 {
+    box-shadow: inset 20px 0 300px rgb(0, 255, 106),
+  }
+
+.active1 {
+    box-shadow: inset 20px 0 300px rgb(255, 0, 76),
+  }
+
+.active2 {
+    box-shadow: inset 20px 0 300px rgb(111, 0, 255),
+  }
+
+.active3 {
+    box-shadow: inset 20px 0 300px rgb(255, 238, 0),
+  }

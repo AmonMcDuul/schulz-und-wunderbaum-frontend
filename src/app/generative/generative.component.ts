@@ -28,6 +28,10 @@ clearCanvas() {
   this.ngAfterViewInit();
 }
 
+repeat() {
+  window.requestAnimationFrame(() => this.drawCanvas())
+}
+
 drawCanvas() {
     this.canvas.width = this.size * this.dpr;
     this.canvas.height = this.size * this.dpr;
@@ -70,6 +74,8 @@ drawCanvas() {
       this.context.restore();
       this.context.stroke();
     }
+
+    window.setTimeout(() => {this.repeat()}, 7000)
 }
 
 }

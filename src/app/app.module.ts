@@ -31,6 +31,7 @@ import { FourInARowComponent } from './four-in-a-row/four-in-a-row.component';
 import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.component';
 import { TypespeedComponent } from './typespeed/typespeed.component';
 import { GenerativeComponent } from './generative/generative.component';
+import { SimonsaysComponent } from './simonsays/simonsays.component';
 
 
 
@@ -51,6 +52,7 @@ import { GenerativeComponent } from './generative/generative.component';
     FourInARowComponent,
     TypespeedComponent,
     GenerativeComponent,
+    SimonsaysComponent,
   ],
   imports: [
     FlexLayoutModule,
@@ -72,6 +74,7 @@ import { GenerativeComponent } from './generative/generative.component';
       {path: 'fourinarow', component: FourInARowComponent},
       {path: 'typespeed', component: TypespeedComponent},
       {path: 'generative', component: GenerativeComponent},
+      {path: 'simonsays', component: SimonsaysComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
       {path: 'calculations', component: CalculationsComponent},

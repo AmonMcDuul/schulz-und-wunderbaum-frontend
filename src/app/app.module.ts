@@ -32,9 +32,10 @@ import { GamedialogComponent } from './four-in-a-row/gamedialog/gamedialog.compo
 import { TypespeedComponent } from './typespeed/typespeed.component';
 import { GenerativeComponent } from './generative/generative.component';
 import { SimonsaysComponent } from './simonsays/simonsays.component';
+import { CryptoComponent } from './crypto/crypto.component';
 
-
-
+import * as CanvasJSAngularChart from '../assets/js/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 @NgModule({
   declarations: [
@@ -53,6 +54,8 @@ import { SimonsaysComponent } from './simonsays/simonsays.component';
     TypespeedComponent,
     GenerativeComponent,
     SimonsaysComponent,
+    CryptoComponent,
+    CanvasJSChart
   ],
   imports: [
     FlexLayoutModule,
@@ -75,6 +78,7 @@ import { SimonsaysComponent } from './simonsays/simonsays.component';
       {path: 'typespeed', component: TypespeedComponent},
       {path: 'generative', component: GenerativeComponent},
       {path: 'simonsays', component: SimonsaysComponent},
+      {path: 'crypto', component: CryptoComponent},
       {path: 'test', component: TestComponent},
       {path: 'drugwars', component: DrugwarsComponent},
       {path: 'calculations', component: CalculationsComponent},

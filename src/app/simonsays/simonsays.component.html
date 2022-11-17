@@ -2,12 +2,18 @@
 <div class="grid-container">
     <ng-container *ngFor="let number of displaySequence; let i = index">
         <ng-container *ngIf="compStyle === i; else normalStyling">
-            <div class="color{{i}} gen" (click)="playerInput(i)"> {{i}}, {{solved}}, {{playerMove}}, {{compStyle}}
+            <div class="color{{i}} gen" (click)="playerInput(i)" @changeColor>
             </div>
         </ng-container>
         <ng-template #normalStyling>
-            <div class="color{{i}} gen" (click)="playerInput(i)"> {{solved}}, {{playerMove}}
+            <div class="color{{i}} gen" (click)="playerInput(i)">
             </div>
         </ng-template>
     </ng-container>
 </div>
+
+
+<ng-container *ngIf="compStyle0 === 1">
+    <div class="color0 gen"> changed
+    </div>
+</ng-container> 

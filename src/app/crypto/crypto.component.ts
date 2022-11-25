@@ -12,11 +12,12 @@ export class CryptoComponent implements AfterViewInit, OnInit {
   updateInterval = 10000;
   
   // initial value
-  yPrice = null; 
+  yPrice: any; 
   time = new Date();
 
-  bitcoinPrice =[{x: this.time.getTime(), y: this.yPrice}]
- 
+  bitcoinPrice = [{x: Date.now(), y: null}];
+  histPrices: any;
+
   chart: any;
  
   chartOptions = {
@@ -26,7 +27,8 @@ export class CryptoComponent implements AfterViewInit, OnInit {
       text: "Bitcoin Price (USD)"
     },
     axisY:{
-      prefix: "$"
+      prefix: "$",
+      gridThickness: 0,
     }, 
     toolTip: {
       shared: true
@@ -49,6 +51,8 @@ export class CryptoComponent implements AfterViewInit, OnInit {
 
     data: [{ 
       type: "line",
+      // type: "splineArea",
+      color: "lightgrey",
       xValueType: "dateTime",
       yValueFormatString: "$####.00",
       xValueFormatString: "hh:mm:ss TT",
@@ -58,10 +62,10 @@ export class CryptoComponent implements AfterViewInit, OnInit {
     }]
   }
 
-
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.initiateData()
     this.updateChart()
   }
 
@@ -69,26 +73,49 @@ export class CryptoComponent implements AfterViewInit, OnInit {
 	  setInterval(() => {this.updateChart()}, this.updateInterval);	
   }
 
+  parsePrices() {
+    for (let i = 0; i < this.histPrices.length; i++) {
+      var x = this.histPrices[i][0]
+      var y = this.histPrices[i][1]
+      this.bitcoinPrice.push({x,y});
+    }
+
+  }
+
+  initiateData() {
+    this.http.get<any>('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1').subscribe(data => {
+      this.histPrices = data.prices;
+      this.parsePrices()
+    })
+  }
+
   getChartInstance(chart: object) {
     this.chart = chart;
     this.updateChart();
   }
  
-  updateChart() {
+  getLastData() {
     var t = new Date();
     this.http.get<any>('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').subscribe(data => {
       this.yPrice = data.bitcoin.usd;
-      console.log(this.bitcoinPrice)
     })
 
       this.bitcoinPrice.push({
         x: t.getTime(),
         y: this.yPrice
         });
+    }
+
+
+  formatChart() {
      
-    // updating legend text with updated with y Value 
     this.chart.options.data[0].legendText = " BTC price $" + CanvasJS.formatNumber(this.yPrice, "#,###.00");
     this.chart.render();
+  }
+
+  updateChart(){
+    this.getLastData()
+    this.formatChart()
   }
 
 } 

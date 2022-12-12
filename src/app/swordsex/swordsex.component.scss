@@ -1,0 +1,14 @@
+  .wrapper {
+    background-clip: text;  
+    -webkit-background-clip: text;
+    color: #964a8f;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    margin-top: 50px;
+    margin-left: 20px;
+    font-size: 50px;
+    // font-size: clamp( 0.3em, 18vw, 15rem);
+    grid-area: overlap;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 4px transparent;
+  }

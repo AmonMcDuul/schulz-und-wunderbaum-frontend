@@ -12,7 +12,7 @@ export class CryptoComponent implements AfterViewInit, OnInit {
   updateInterval = 10000;
   
   // initial value
-  yPrice: any; 
+  yPrice = null; 
   time = new Date();
 
   bitcoinPrice = [{x: Date.now(), y: null}];

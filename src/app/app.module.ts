@@ -33,8 +33,10 @@ import { TypespeedComponent } from './typespeed/typespeed.component';
 import { GenerativeComponent } from './generative/generative.component';
 import { SimonsaysComponent } from './simonsays/simonsays.component';
 import { CryptoComponent } from './crypto/crypto.component';
+import { SwordsexComponent } from './swordsex/swordsex.component';
 
 import * as CanvasJSAngularChart from '../assets/js/canvasjs.angular.component';
+
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 @NgModule({
@@ -55,7 +57,8 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     GenerativeComponent,
     SimonsaysComponent,
     CryptoComponent,
-    CanvasJSChart
+    CanvasJSChart,
+    SwordsexComponent
   ],
   imports: [
     FlexLayoutModule,
@@ -73,6 +76,7 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
     BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      {path: 'swordsex', component: SwordsexComponent},
       {path: 'subtracting', component: SubtractingComponent},
       {path: 'fourinarow', component: FourInARowComponent},
       {path: 'typespeed', component: TypespeedComponent},
